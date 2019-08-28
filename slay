@@ -1,0 +1,4056 @@
+
+//-----------------------------
+#include<iostream.h>
+#include<conio.h>
+#include<string.h>
+#include<stdio.h>
+#include<stdlib.h>
+#include<dos.h>
+#include<process.h>
+#include<fstream.h>
+#include<ctype.h>
+#include<graphics.h>
+ int yflag=0;
+int userflag=0;
+int fileflag=1;
+char username[30];
+char ch11=220;
+char ch10=273;
+char ch=222;
+char ch1=201;
+char ch2=186;
+char ch3=187;
+char ch4=205;
+char ch9=178;
+char ch5=219;
+char ch6=188;
+char ch7=200;
+char ch12=177;
+char ch13=178;
+int discount;
+int money=1000;//
+int offer;
+int mmm;
+int counter=0;
+int choice2;
+int i,j,d;
+int month,ri;
+int k,dd;
+char mm[10];
+int yy;
+int rich;
+long double rideprice=0;
+long double foodprice=0;
+long double roomcost=0;
+char mod[10];
+long double price;
+int flag=0;
+fstream fout;
+//--------------------------------------------------------
+void disp()//it a common fuction called in every function to display name on top of the screen.
+{
+cout<<"*********************************** WONDER LAND ********************************";
+cout<<"****************************** ADVENTURE THEME PARK ****************************";
+
+cout<<"                                * LIFE REFRESHED *                              ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch;}
+
+}
+//--------------------------------------------------
+void rules() // part of home function.
+{
+    clrscr();
+     int offer;
+     textcolor(6);
+     clrscr();
+     cout<<"********************************** WONDER LAND *********************************";
+     cout<<"***************************** ADVENTURE THEME PARK *****************************";
+     cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+     cout<<"                               * LIFE   REJOICED *                              ";
+     cout<<"--------------------------------------------------------------------------------";
+     cout<<"                         ** PARK TIMINGS & DRESS CODE **                        ";
+     cout<<"                         ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~";
+     cout<<"\n";
+     cout<<"Park timings - ";
+cout<<"\n";
+cout<<"1.BANGALORE";
+cout<<"\n";
+cout<<"   * monday - friday    11.00 am to 6.00 pm";
+cout<<"\n";
+cout<<"   * saturday/sunday, holidays - 11.00 am to 8 pm";
+cout<<"\n";
+cout<<"-------------------------------------------------------------------------------";
+cout<<" DRESS CODE TO BE FOLLOWED";
+cout<<"\n";
+cout<<"********************************************************************************";
+cout<<" We care for your safety. For your enjoyment, and in the interest of hygiene    ";
+cout<<" and safety, a dress code is enforced in the water park.                        ";
+cout<<"******************************************************************************* ";
+cout<<"BOYS:-";
+cout<<"\n";
+
+cout<<"boys are allowed to wear casual dress,shorts,jersy(synthetic),or swimsuits      ";
+cout<<"boys are not allowed to wear fullpants,jeans,shirts,jackets,coats and sweaters  ";
+cout<<"GIRLS:-";
+cout<<"\n";
+
+cout<<"girls are allowed to wear swim suits,shorts,tees and casual t shirts            ";
+cout<<"girls are not allwed to wear denims,full pants,saris,shawls,kurta and shirts    ";
+cout<<"\n"<<"                           PRESS ENTER TO GO BACK";
+getch();
+void home();
+home();
+}
+
+//---------------------------------------------------
+void box0()
+{
+for(int i=0;i<40;i++)
+{cout<<ch4;}
+}
+//-----------------------------
+void box1()
+{ for(int i=0;i<40;i++)
+  { cout<<ch5;}
+}
+//-------------------------------------------------------
+
+class user
+{
+ int userage;
+ char username[30];
+ char useraddress[30];
+ char userphno[10];
+ public:
+ void display_user_details()  //display's user details
+ {
+  cout<<"NAME:";puts(username);
+  cout<<"AGE:"<<userage;cout<<endl;
+  cout<<"ADDRESS:";puts(useraddress);
+  cout<<"PHONE NO:"<<userphno<<endl<<endl;
+ }
+ void accept_user_details()  //accept's user details
+ {
+  cout<<"enter user name"<<endl;
+  gets(username);
+  cout<<"enter user age"<<endl;
+  cin>>userage;
+  cout<<"enter user phone number"<<endl;
+  gets(userphno);
+  cout<<"enter user address"<<endl;
+  gets(useraddress);userflag++;
+ }
+
+ char* ret()  //returns user name
+ {return (username);}
+
+}obj4;
+class ride
+{
+
+ int ridecode;
+ char ridename[30];
+ float rideprice;
+ char ridetype[10];
+ public:
+void dis()
+{
+cout<<"\n";
+//cout<<"      "<<ridename      <<"          " <<ridecode<<"            "<<rideprice<<"         "<<ridetype;
+cout<<"RIDE NAME : ";
+cout<<ridename;
+cout<<"\n";
+cout<<"RIDE CODE : ";
+cout<<ridecode;
+cout<<"\n";
+cout<<"RIDE PRICE: ";
+cout<<rideprice;
+cout<<"\n";
+cout<<"RIDE TYPE : ";
+cout<<ridetype;
+cout<<"\n";
+}
+////////////////////////////////////////////////////////////////////////////////////////
+void dashing()
+  {
+   ridecode=100;
+   strcpy(ridename,"DASHING CARS");
+   rideprice=150;
+   strcpy(ridetype,"LAND");
+  }
+////////////////////////////////////////////////////////////////////////////////////////
+  void pirate()
+   {
+    ridecode=101;
+    strcpy(ridename,"PIRATES OF CARRIBEAN");
+    rideprice=200;
+    strcpy(ridetype,"LAND");
+   }
+///////////////////////////////////////////////////////////////////////////////////////
+  void mindsplit()
+   {
+    ridecode=102;
+    strcpy(ridename,"MINDSPLIT");
+    rideprice=250;
+    strcpy(ridetype,"LAND");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void lagoon()
+   {
+    ridecode=103;
+    strcpy(ridename,"WATER LAGOON");
+    rideprice=150;
+    strcpy(ridetype,"WATER");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void splash()
+   {
+    ridecode=104;
+    strcpy(ridename,"SPLASH MOUNTAIN");
+    rideprice=200;
+    strcpy(ridetype,"WATER");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void splitter()
+   {
+    ridecode=105;
+    strcpy(ridename,"WAVE SPLITTER");
+    rideprice=250;
+    strcpy(ridetype,"WATER");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void equinox()
+   {
+    ridecode=106;
+    strcpy(ridename,"EQUINOX");
+    rideprice=150;
+    strcpy(ridetype,"HIGH THRILL");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void manta()
+   {
+    ridecode=107;
+    strcpy(ridename,"MANTA");
+    rideprice=200;
+    strcpy(ridetype,"HIGH THRILL");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  void hulk()
+   {
+    ridecode=108;
+    strcpy(ridename,"HULK COASTER");
+    rideprice=250;
+    strcpy(ridetype,"HIGH THRILL");
+   }
+//////////////////////////////////////////////////////////////////////////////////////
+  int ret()  //returns ride code
+ {return ridecode;}
+
+}obj3;
+//-----------------------------------------
+void delete3()     //deletes ride details
+{
+  int rcode;
+  clrscr();
+  disp();
+  cout<<"\n";
+  cout<<"ENTER RIDE CODE"<<endl;
+  cout<<"\n";
+  cin>>rcode;
+  if (rcode==100 ||rcode==103 || rcode==106)
+  {rideprice=rideprice-150;}
+  if (rcode==101 || rcode==104||rcode==107)
+  {rideprice=rideprice-200;}
+  if (rcode==102 || rcode==104||rcode==108)
+  {rideprice=rideprice-250;}
+  cout<<"\n";
+
+    ifstream inFile1;
+    inFile1.open("booking.txt", ios::binary|ios::in);
+
+    ofstream outFile1;
+    outFile1.open("temp1.txt", ios::out | ios::binary);
+
+      while(inFile1.read((char*)&obj3,sizeof(obj3)))
+     {
+        if(rcode!=obj3.ret())
+           {
+            outFile1.write((char*)&obj3, sizeof(obj3));
+           }
+        if(rcode==obj3.ret())
+       fileflag=0;
+
+     }
+
+    inFile1.close();
+    outFile1.close();
+
+    remove("booking.txt");
+    rename("temp1.txt", "booking.txt");
+    getch();
+    if(fileflag==0)
+    {
+     cout<<"BOOKING DELETED";
+     cout<<"\n";
+     getch();
+
+    }
+    else if(fileflag==1)
+    {
+     cout<<"RECORD NOT FOUND!"<<endl;
+     cout<<"ENTER 0 TO ENTER AGAIN";
+     getch();
+
+    }
+}
+//////////////////////////////////////////////////////
+
+//-----------------------------------------
+void delete2()     //deletes user details
+{
+
+clrscr();
+disp();
+cout<<"\n";
+char mod[10];
+
+ cout<<"ENTER CUSTOMER NAME TO BE DELETED";
+ cout<<"\n";
+ gets(mod);
+ cout<<"\n";
+
+    fileflag = 1;               //correction
+
+    ifstream inFile;
+    inFile.open("user.txt", ios::binary | ios::in);
+
+    ofstream outFile;
+    outFile.open("temp1.txt", ios::out | ios::binary);
+
+    while(inFile.read((char*)&obj4,sizeof(obj4)))
+   {
+        if(strcmp(mod,obj4.ret())!=0)
+           {
+        outFile.write((char*)&obj4, sizeof(obj4));
+           }
+        if(strcmp(mod,obj4.ret())==0)
+        fileflag=0;
+   }
+
+remove("user.txt");
+rename("temp1.txt","user.txt");
+inFile.close();
+outFile.close();
+
+if(fileflag==0)
+{
+cout<<"USER DETAILS DELETED";
+cout<<"\n";
+getch();
+void adminfunc();
+adminfunc();
+}
+if(fileflag==1)
+{cout<<"RECORD NOT FOUND."<<endl;}
+getch();
+void adminfunc();
+adminfunc();
+}
+/////////////////////////////////////////////////////////////
+void modify1()   //to modify user details
+{
+ clrscr();
+ fstream file;
+ char mod[20];
+ file.open("user.txt",ios::in|ios::out|ios::binary);
+ cout<<"ENTER CUSTOMER NAME TO BE MODIFIED";
+ cout<<"\n";
+ gets(mod);
+ cout<<"\n";
+
+ while(file.read((char*)&obj4,sizeof(obj4)))
+   { if(strcmp(mod,obj4.ret())==0)
+
+     { cout<<"ENTER NEW DATA";
+       clrscr();disp();
+       obj4.accept_user_details();
+       int pos=-1*sizeof(obj4);
+       file.seekg(pos,ios::cur);
+       file.write((char*)&obj4,sizeof(obj4));
+       fileflag=0;break;
+
+     }
+   }
+       file.close();
+       if(fileflag==0)
+       {
+    cout<<"\n";
+    cout<<"\n";
+    cout<<"CONGRATULATIONS YOU HAVE SUCCESSFULLY UPDATED CUSTOMER DETAILS";
+    cout<<"\n";
+    cout<<"press enter to go back";
+    getch();
+    void adminfunc();
+    adminfunc();
+       }
+       if(fileflag==1)
+      { cout<<"RECORD NOT FOUND"<<endl;}
+       cout<<"ENTER 0 TO TRY AGAIN";
+       getch();
+       void adminfunc();
+       adminfunc();
+
+
+}
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+void dispuserdetails()
+{
+ clrscr();
+ disp();
+ fstream fout1;
+ fout1.open("user.txt",ios::in|ios::binary);
+ while(fout1.read((char*)&obj4,sizeof(obj4)))
+ {obj4.display_user_details();}
+ fout1.close();
+
+
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+void acceptuserdetails()
+{
+  fout.open("user.txt",ios::app|ios::binary);
+  obj4.accept_user_details();
+  //int i=unique_name();
+ //  if(i!=-1)
+  //{
+   fout.write((char*)&obj4,sizeof(obj4));
+   fout.close();
+   getch();
+}
+////////////////////////////////////////////////////////////////////////////////////////////////////////
+void display1()//function used to display all the contents written into the file(Ride Details).
+
+{
+  //disp();
+  fstream infile;
+  int ffg=1;
+   cout<<endl;
+  //cout<<"         RIDE NAME        RIDE CODE           COST        TYPE";
+  infile.open("booking.txt",ios::binary|ios::in);
+ while(infile.read((char*)&obj3,sizeof(obj3)))
+  {cout<<"\n";
+  cout<<"BOOKING"<<ffg<<":-"<<"\n";
+   obj3.dis();
+  ffg++;
+  }
+  infile.close();
+  //diss();
+
+
+}
+//-----------------------------------------
+void land()
+{
+    int opp3;
+
+   clrscr();
+   textcolor(6);
+   disp();
+    cout<<"\n";
+
+    for(int gh=0;gh<80;gh++)
+    { cout<<ch5;}
+
+cout<<"\n";
+cout<<"****************************** HIGH THRILL RIDES ***************************";
+cout<<"\n";
+cout<<"\n";
+cout<<"\n";
+//********************************
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                        CHOOSE THE TYPE OF RIDE                               ";
+cout<<"\n";
+cout<<"                   "<<ch1;box0();
+cout<<ch3<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch7;box0();
+cout<<ch6<<"\n";
+cout<<"\n";
+gotoxy(28,10);
+cout<<"Choose an option to continue";
+gotoxy(22,11);
+cout<<"**************************************";
+gotoxy(22,12);
+cout<<" RIDE NAME         RIDECODE     PRICE ";
+gotoxy(22,13);
+cout<<" 1.DASHING CARS        100       150  ";
+gotoxy(22,14);
+cout<<" 2.PIRATES             101       200  ";
+gotoxy(22,15);
+cout<<" 3. MINDSPLIT          102       250  ";
+gotoxy(22,16);
+cout<<"";
+gotoxy(22,17);
+cout<<" 4.GO BACK";
+gotoxy(26,22);
+cout<<"* ENTER * -> ";
+cin>>opp3;if(opp3==1)
+{ //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.dashing();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+if(opp3==2)
+{
+ //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+fout.open("booking.txt",ios::app|ios::binary);
+obj3.pirate();
+fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+fout.close();
+}
+if(opp3==3)
+{
+ //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+fout.open("booking.txt",ios::app|ios::binary);
+obj3.mindsplit();
+fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+fout.close();
+}
+if(opp3==4)
+{void rides();
+  rides();}
+}
+
+
+
+void waterrides()
+{   int opp;
+
+    clrscr();
+    disp();
+    cout<<"\n";
+
+    for(int gh=0;gh<80;gh++)
+    { cout<<ch5;}
+
+cout<<"\n";
+cout<<"*********************************** WATER RIDES *******************************";
+cout<<"\n";
+cout<<"\n";
+//********************************
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                        CHOOSE THE TYPE OF RIDE                               ";
+cout<<"\n";
+cout<<"                   "<<ch1;box0();
+cout<<ch3<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch7;box0();
+cout<<ch6<<"\n";
+cout<<"\n";
+gotoxy(28,10);
+cout<<"Choose an option to continue";
+gotoxy(22,11);
+cout<<"**************************************";
+gotoxy(22,12);
+cout<<"  RIDE NAME        CODE      PRICE    ";
+gotoxy(22,13);
+cout<<" 1.WATER LAGOON    103       150      ";
+gotoxy(22,14);
+cout<<" 2.SPLASH MOUNTN   104       200      ";
+gotoxy(22,15);
+cout<<" 3.WAVE SPLITTER   105       250      ";
+gotoxy(22,16);
+cout<<"";
+gotoxy(22,17);
+cout<<" 4.GO BACK";
+gotoxy(26,22);
+cout<<"* ENTER * -> ";
+cin>>opp;
+
+if(opp==1)
+{
+ //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.lagoon();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ getch();
+ fout.close();
+}
+
+if(opp==2)
+{  //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.splash();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+
+if(opp==3)
+{  //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.splitter();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+
+if(opp==4)
+{void rides();
+  rides(); }
+}
+void highthrill()
+{
+int opp1;
+
+    clrscr();
+    disp();
+    cout<<"\n";
+
+    for(int gh=0;gh<80;gh++)
+    { cout<<ch5;}
+
+cout<<"\n";
+cout<<"****************************** HIGH THRILL RIDES ***************************";
+cout<<"\n";
+cout<<"\n";
+cout<<"\n";
+//********************************
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                        CHOOSE THE TYPE OF RIDE                               ";
+cout<<"\n";
+cout<<"                   "<<ch1;box0();
+cout<<ch3<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch7;box0();
+cout<<ch6<<"\n";
+cout<<"\n";
+gotoxy(28,10);
+cout<<"Choose an option to continue";
+gotoxy(22,11);
+cout<<"**************************************";
+gotoxy(22,12);
+cout<<" RIDE NAME         RIDECODE     PRICE ";
+gotoxy(22,13);
+cout<<" 1.EQINOX            106         150  ";
+gotoxy(22,14);
+cout<<" 2.MANTA             107         200  ";
+gotoxy(22,15);
+cout<<" 3.HULK COASTER      108         250  ";
+gotoxy(22,16);
+cout<<"";
+gotoxy(22,17);
+cout<<" 4.GO BACK";
+gotoxy(26,22);
+cout<<"* ENTER * -> ";
+cin>>opp1;
+
+if(opp1==1)
+{
+ //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.equinox();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+
+if(opp1==2)
+{  //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.manta();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+
+if(opp1==3)
+{  //---------------------
+  rich=150;
+  rideprice=rideprice+rich;
+  //----------------------
+ fout.open("booking.txt",ios::app|ios::binary);
+ obj3.hulk();
+ fout.write((char*)&obj3,sizeof(obj3));getch();
+ cout<<"RIDE BOOKED"<<endl;getch();
+ fout.close();
+}
+
+if(opp1==4)
+{ void rides();
+  rides();   }
+
+}
+//---------------------------------------------------
+void rides()
+{
+int ghj1;
+if(userflag==0)
+{
+clrscr();
+disp();
+void acceptuserdetails();
+acceptuserdetails();
+userflag++;
+void rides();
+rides();
+}
+else
+{
+label:
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                        CHOOSE THE TYPE OF RIDE                               ";
+cout<<"\n";
+cout<<"                   "<<ch1;box0();
+cout<<ch3<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2<<ch5<<"                                      "<<ch5<<ch2<<"\n";
+cout<<"                   "<<ch2;box1();cout<<ch2<<"\n";
+cout<<"                   "<<ch7;box0();
+cout<<ch6<<"\n";
+cout<<"\n";
+gotoxy(28,10);
+cout<<"Choose an option to continue";
+gotoxy(22,11);
+cout<<"**************************************";
+gotoxy(22,12);
+cout<<" ";
+gotoxy(22,13);
+cout<<" 1.LAND RIDES";
+gotoxy(22,14);
+cout<<" 2.WATER RIDES";
+gotoxy(22,15);
+cout<<" 3.HIGH THRILL RIDES";
+gotoxy(22,16);
+cout<<"";
+gotoxy(22,17);
+cout<<" 4.GO BACK";
+gotoxy(26,22);
+cout<<"* ENTER * -> ";
+cin>>ghj1;
+if(ghj1==1)
+{
+ land();goto label;
+}
+if(ghj1==2)
+{
+ waterrides();goto label;
+}
+if(ghj1==3)
+{
+ highthrill();goto label;
+}
+if(ghj1==4)
+{
+if(rideprice>0)
+  {yflag++;}
+
+ void home();
+ home();}
+}
+getch();
+}
+
+//below class is for offers.
+
+class Gen
+{ public:
+   char name[20];
+   char colname[30];
+   int agee;
+  void accept()
+  { cout<<"\n";
+    cout<<"ENTER NAME"<<"\t";
+    gets(name);
+    cout<<"ENTER AGE"<<"\t";
+    cin>>agee;
+    cout<<"ENTER INSTITUTION'S NAME"<<"\t";
+    gets(colname);
+    cout<<"\n";
+  }
+  void displaydet()
+  {  cout<<"NAME = "<<puts(name);
+     cout<<"\n";
+     cout<<"AGE  = "<<agee;
+     cout<<"\n";
+     cout<<"NAME OF COLLEGE = "<<puts(colname);
+  }
+}obj1[10],obj5;
+//--------------------------------------------------
+//*****************************************************************************
+// the below code is for offers
+
+
+void college() //sub function under function - offers
+{clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"********************************************************************************";
+cout<<"                           COLLEGE STUDENT OFFER                                ";
+cout<<"\n";
+int tic1;
+
+cout<<"ENTER NO OF TICKETS REQIRED                          ENTER 0 TO GO BACK         ";
+cout<<"********************************************************************************";
+cin>>tic1;
+if(tic1==0)
+{  void main3();
+    main3(); }
+else
+{
+    for(i=0;i<tic1;i++)
+    {
+     obj1[i].accept() ;
+
+    }
+
+
+
+        cout<<"\n";
+        cout<<"          YOU CAN REVIEW YOUR DISCOUNT IN YOUR CART";
+        cout<<"\n";
+
+        cout<<"\n"<<"              PRESS O TO GO BACK";
+        cout<<"\n";
+        rideprice=rideprice*tic1;
+        rideprice=rideprice-((rideprice*20)/100);
+        getch();
+        void home();
+        home();
+}
+
+}
+
+//----------------------------------------------------------------------------------------
+void school() //sub function under function - offers
+{
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"********************************************************************************";
+cout<<"                           SCHOOL STUDENT OFFER                                 ";
+cout<<"\n";
+cout<<"                          ***********************";
+cout<<"\n";
+int tic1;
+
+cout<<"ENTER NO OF TICKETS REQIRED                         ENTER 0 TO GO BACK          ";
+cout<<"********************************************************************************";
+cin>>tic1;
+if(tic1==0)
+{void main3();
+  main3();}
+else
+{
+   for(int i=0;i<tic1;i++)
+     {
+       obj1[i].accept();
+     }
+
+
+
+
+     cout<<"\n";
+     cout<<"         YOU CAN REVIEW YOUR DISCOUNT IN YOUR CART";
+     cout<<"\n";
+     cout<<"    SCHOOL ID CARD TO BE SHOWN, IN ORDER TO AVAIL THIS OFFER";
+     cout<<"\n"<<"               PRESS O TO CONTINUE ";
+     cout<<"\n";
+      rideprice=rideprice*tic1;
+        rideprice=rideprice-((rideprice*35)/100);
+     getch();
+     void home();
+     home();
+}
+
+}
+
+//----------------------------------------------------------------------------------------
+
+void group() //sub function under function - offers
+
+{
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+
+cout<<"********************************************************************************";
+cout<<"                                  GROUP OFFER                                   ";
+cout<<"\n";
+cout<<"                              ******************* ";
+cout<<"\n";
+int tic1;
+cout<<"ENTER NO OF TICKETS REQIRED(MIN 6 AT A TIME)           ENTER 0 TO GO BACK       ";
+cout<<"********************************************************************************";
+cin>>tic1;
+if(tic1<6)
+{ cout<<"MINIMUM ENTRY FOR AVAILING THIS OFFER IS 6.PLEASE ENTER AGAIN";
+  cout<<"                   PRESS O TO ENTER AGAIN";
+  void group();
+  group();
+}
+else if(tic1==0)
+{void main3();
+  main3();}
+else
+{
+   for(int i=0;i<tic1;i++)
+       {
+       obj1[i].accept();
+       }
+
+cout<<"\n";
+cout<<"                   YOU CAN REVIEW YOUR DISCOUNT IN YOUR CART";
+cout<<"\n";
+cout<<"\n"<<"                       PRESS ENTER TO GO BACK ";
+cout<<"\n";
+ rideprice=rideprice*tic1;
+        rideprice=rideprice-((rideprice*15)/100);
+
+getch();
+void home();
+home();
+}
+}
+
+//-------------------------------------------------------------------------------------------
+void main3()  // offer function used for special offers based on number of people and category.
+
+{
+yflag++;
+clrscr();
+loop3:
+textcolor(6);
+clrscr();
+disp();
+cout<<"************************************* OFFERS ***********************************";
+cout<<"\n";
+cout<<"WE IN WONDERLAND OFFER YOU A VARIETY OF PACAGES AND OFFERS THAT YOU CAN AWAIL   ";
+cout<<"TO AVAIL ANY OF THE BELOW PACKAGE OR OFFER TYPE THEIR CORRESPONDING NUMBERS     ";
+cout<<"--------------------------------------------------------------------------------";
+cout<<"********************************************************************************";
+cout<<"1.COLLEGE STUDENT OFFER                    WONDERLAND OFFERS A 20% DISCOUNT     ";
+cout<<"                                           ON PARK ADMISSION TO COLLEGE STUDENTS";
+cout<<"********************************************************************************";
+cout<<"2.SCHOOL STUDENT OFFER                     WE LOVE CHILDREN SO WE OFFER A 35%   ";
+cout<<"                                           DISCOUNT ON PARK ADMISSION.          ";
+cout<<"********************************************************************************";
+cout<<"3.GROUP PACKAGE                            WE ALSO HAVE A DISCOUNT FOR PEOPLE   ";
+cout<<"                                           WHO COME IN GROUP(MORE THAN 10)      ";
+cout<<"                                           THEN THERE IS 15% DISCOUNT FOR       ";
+cout<<"                                           EACH.                                ";
+cout<<"4.GO BACK                                                                       ";
+cout<<"********************************************************************************";
+cout<<"ENTER YOUR CHOICE->  ";
+
+cin>>offer;
+if(offer<1||offer>4)
+ {        cout<<"ERROR**##<<!>>,PLEASE ENTER A VALID NUMBER.";
+      getch();
+      main3();
+ }
+switch(offer)
+{ case 1: college();
+      money=money-((20*money)/100);
+      break;
+  case 2: school();
+      money=money-((35*money)/100);
+      break;
+  case 3: group();
+      money=money-((15*money)/100);
+      break;
+  case 4: void home();
+      home();
+      break;
+
+}
+getch();
+}
+//**************************  END OF RESORT PROGRAM *******************
+// -------------------------------------------------------------------
+//  food combo prg
+void food1()
+{
+  //  long double foodprice;
+    int sd;
+    int io;
+    clrscr();
+    textcolor(6);
+    disp();
+
+
+
+
+cout<<"                                   FOOD PACKAGES                                ";
+
+cout<<"                         CHOOSE ONE OF THE FOLLOWING COMBOS                       ";
+       cout<<"\n";
+cout<<"         1                 2                  3                     4";
+cout<<"\n";
+cout<<ch1;
+for(int lk=0;lk<78;lk++)
+{cout<<ch4;}
+cout<<ch3;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch2<<"                   "<<ch2<<"                    "<<ch2<<"                   "<<ch2<<"                 "<<ch2;
+cout<<ch7;
+for( lk=0;lk<78;lk++)
+{cout<<ch4;}
+cout<<ch6;
+gotoxy(2,12);
+ for(int gh=0;gh<78;gh++)
+      { cout<<ch4;}
+gotoxy(3,10);
+cout<<"NORTH INDIAN COMBO";
+gotoxy(7,11);
+cout<<"   MEAL";
+gotoxy(22,10);
+cout<<" CHINESE COMBO MEAL";
+gotoxy(43,10);
+cout<<" SOUTH INDIAN COMBO";
+gotoxy(47,11);
+cout<<"    MEAL";
+gotoxy(64,10);
+cout<<"KIDS HAPPY MEAL";
+gotoxy(3,13);
+cout<<"1.ROTI/NAAN";
+gotoxy(3,14);
+cout<<"2.PANEER MASALA";
+gotoxy(3,15);
+cout<<"3.DAL TADKA";
+gotoxy(3,16);
+cout<<"4.GHEE RICE";
+gotoxy(3,17);
+cout<<"5.GULAB JAMUN";
+gotoxy(3,18);
+cout<<"6.LASSI";
+gotoxy(3,20);
+cout<<"PRICE = 160";
+gotoxy(23,13);
+cout<<"1.FRIED RICE";
+gotoxy(23,14);
+cout<<"2.EGG NOODLES";
+gotoxy(23,15);
+cout<<"3.GOBI MANCHURIAN";
+gotoxy(23,16);
+cout<<"4.CHUNG LING SOUP";
+gotoxy(23,17);
+cout<<"5.LIME SODA";
+gotoxy(23,20);
+cout<<"PRICE = 200";
+gotoxy(44,13);
+cout<<"1.CHOW CHOW BATH";
+gotoxy(44,14);
+cout<<"2.MASALA DOSA";
+gotoxy(44,15);
+cout<<"3.SAMBAR RICE";
+gotoxy(44,16);
+cout<<"4.CURD RICE";
+gotoxy(44,17);
+cout<<"5.CARROT HALWA";
+gotoxy(44,18);
+cout<<"6.BUTTER MILK";
+gotoxy(44,20);
+cout<<"PRICE = 140";
+
+gotoxy(64,13);
+cout<<"1.VEG BURGER";
+gotoxy(64,14);
+cout<<"2.FRENCH FRIES";
+gotoxy(64,15);
+cout<<"3.CHOCOLATE CAKE";
+gotoxy(64,16);
+cout<<"4.COKE";
+gotoxy(64,20);
+cout<<"PRICE = 140";
+gotoxy(28,22);
+cout<<"PRESS 5 TO GO BACK";
+gotoxy(28,23);
+cout<<"ENTER -->"<<"\t";
+cin>>sd;
+int ou;
+int yl;
+if(sd==1)
+{
+ clrscr();
+    textcolor(6);
+    disp();
+//----------------------------------------------
+cout<<"                                   FOOD PACKAGES                                ";
+cout<<"\n";
+cout<<"                   NORTH INDIAN MEAL COMBO SUCESSFULLY SELECTED";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER NUMBER OF PLATES REQUIRED"<<"\t";
+cin>>ou;
+io=(ou*160);
+foodprice=(foodprice)+(io);
+cout<<"\n";
+cout<<"\n";
+cout<<"ORDER SUCCESSFULLY PLACED";
+cout<<"\n";
+cout<<"\n";
+cout<<"PRESS 1 TO GO BACK";
+cout<<"\n";
+cout<<"PRESS 2 TO CONTINUE BOOKING FOOD COMBOS";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER OPTION -->"<<"\t";
+cin>>yl;
+if(yl==2)
+{void food1();
+ food1();}
+if(yl==1)
+{void home();
+ home();
+}
+getch();
+}
+//-------------
+if(sd==2)
+{
+ clrscr();
+    textcolor(6);
+    disp();
+//----------------------------------------------
+cout<<"                                   FOOD PACKAGES                                ";
+cout<<"\n";
+cout<<"                       CHINESE MEAL COMBO SUCESSFULLY SELECTED";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER NUMBER OF PLATES REQUIRED"<<"\t";
+cin>>ou;
+io=(ou*200);
+foodprice=(foodprice)+(io);
+cout<<"\n";
+cout<<"\n";
+cout<<"ORDER SUCCESSFULLY PLACED";
+cout<<"\n";
+cout<<"\n";
+cout<<"PRESS 1 TO GO BACK";
+cout<<"\n";
+cout<<"PRESS 2 TO CONTINUE BOOKING FOOD COMBOS";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER OPTION -->"<<"\t";
+cin>>yl;
+if(yl==2)
+{void food1();
+ food1();}
+
+ if(yl==1)
+{void home();
+ home();
+}
+
+getch();
+}
+if(sd==3)
+{
+ clrscr();
+    textcolor(6);
+    disp();
+//----------------------------------------------
+cout<<"                                   FOOD PACKAGES                                ";
+cout<<"\n";
+cout<<"                   SOUTH INDIAN MEAL COMBO SUCESSFULLY SELECTED";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER NUMBER OF PLATES REQUIRED"<<"\t";
+cin>>ou;
+io=(ou*140);
+foodprice=(foodprice)+(io);
+cout<<"\n";
+cout<<"\n";
+cout<<"ORDER SUCCESSFULLY PLACED";
+cout<<"\n";
+cout<<"\n";
+cout<<"PRESS 1 TO GO BACK";
+cout<<"\n";
+cout<<"PRESS 2 TO CONTINUE BOOKING FOOD COMBOS";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER OPTION -->"<<"\t";
+cin>>yl;
+if(yl==2)
+{void food1();
+ food1();}
+
+if(yl==1)
+{void home();
+ home();
+}
+
+getch();
+}
+
+if(sd==4)
+{
+ clrscr();
+    textcolor(6);
+    disp();
+//----------------------------------------------
+cout<<"                                   FOOD PACKAGES                                ";
+cout<<"\n";
+cout<<"                   KIDS HAPPY MEAL COMBO SUCESSFULLY SELECTED";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER NUMBER OF PLATES REQUIRED"<<"\t";
+cin>>ou;
+cout<<"\n";
+cout<<"\n";
+cout<<"ORDER SUCCESSFULLY PLACED";
+cout<<"\n";
+cout<<"\n";
+cout<<"PRESS 1 TO GO BACK";
+cout<<"\n";
+cout<<"PRESS 2 TO CONTINUE BOOKING FOOD COMBOS";
+cout<<"\n";
+cout<<"\n";
+cout<<"ENTER OPTION -->"<<"\t";
+cin>>yl;
+if(yl==2)
+{void food1();
+ food1();}
+
+if(yl==1)
+{void home();
+ home();
+}
+
+getch();
+}
+
+getch();
+}
+
+//**************************************************
+//---------------------------------------------------
+//below class is for resorts.
+//***************************************************;
+
+class book
+{
+
+ public:
+ int age;
+ char fname[30];
+ char sname[30];
+ char address[40];
+ int rooms;
+ int noofdays;
+ int phnumber;
+ void accept()
+ {cout<<"PLEASE ENTER ONLY VALID DETAILS";
+  cout<<"\n";
+  cout<<"ENTER YOUR FIRST NAME"<<"\t";
+  gets(fname);
+  cout<<"ENTER YOUR SECOND NAME"<<"\t";
+  gets(sname);
+  cout<<"ENTER YOUR AGE"<<"\t";
+  cin>>age;
+  cout<<"ENTER YOUR PERMANENET ADDRESS"<<"\t";
+  gets(address);
+  cout<<"ENTER NO OF ROOMS"<<"\t";
+  cin>>rooms;
+  cout<<"ENTER NO OF DAYS OF STAY"<<"\t";
+  cin>>noofdays;
+  cout<<"ENTER YOUR MOBILE NUMBER"<<"\t";
+  cin>>phnumber;
+ }
+ void roomdisplay()
+
+ {
+  cout<<"             ";
+  cout<<"FIRST NAME :- ";
+  puts(fname);
+  cout<<"             ";
+  cout<<"SECOND NAME:- ";
+  puts(sname);
+  cout<<"             ";
+  cout<<"AGE        :-  "<<age;
+  cout<<"\n";
+  cout<<"             ";
+  cout<<"ADDRESS    :- ";
+  puts(address);
+  cout<<"             ";
+  cout<<"ROOMS      :- "<<rooms;
+  cout<<"\n";
+  cout<<"             ";
+  cout<<"NO OF DAYS :- "<<noofdays;
+  cout<<"\n";
+  cout<<"             ";
+  cout<<"MOBILE NO  :- "<<phnumber;
+  cout<<"\n";
+}
+
+
+}obj;
+//----------------------------------------------------
+//below code is for resort program
+//***************************************************************;
+void calcroom1()
+{ roomcost=(218)*(60)*(obj.noofdays)*(obj.rooms);
+//  if(counter>0)
+ // { roomcost=roomcost-((5*roomcost)/100);    }
+  cout<<"          THE TOTAL COST FOR THE ROOM YOU HAVE BOOKED IS="<<roomcost;
+  cout<<"\n";
+  cout<<"                                                      (AFTER DISCOUNT)";
+  cout<<"\n";
+  price=roomcost+price;
+}
+void calcroom2()
+{  roomcost=(187)*(60)*(obj.noofdays)*(obj.rooms);
+   //  if(counter>0)
+//  { roomcost=roomcost-((5*roomcost)/100);    }
+  cout<<"          THE TOTAL COST FOR THE ROOM YOU HAVE BOOKED IS="<<roomcost;
+  cout<<"\n";
+  cout<<"                                                      (AFTER DISCOUNT)";
+  cout<<"\n";
+   price=roomcost+price;
+}
+
+void calcroom3()
+{  roomcost=(146)*(60)*(obj.noofdays)*(obj.rooms);
+   // if(counter>0)
+ // { roomcost=roomcost-((5*roomcost)/100);    }
+  cout<<"          THE TOTAL COST FOR THE ROOM YOU HAVE BOOKED IS="<<roomcost;
+  cout<<"\n";
+  cout<<"                                                      (AFTER DISCOUNT)";
+  cout<<"\n";
+   price=roomcost+price;
+}
+
+/*void calcroom4()
+{ roomcost=(110)*(60)*(obj.noofdays)*(obj.rooms);
+  if(counter>0)
+  { roomcost=roomcost-((5*roomcost)/100);    }
+
+  cout<<"          THE TOTAL COST FOR THE ROOM YOU HAVE BOOKED IS="<<roomcost;
+  cout<<"\n";
+  cout<<"                                                      (AFTER DISCOUNT)";
+  cout<<"\n";
+ price=roomcost+price;
+
+}
+*/
+
+//-----------------------------------------------------
+void datedisplay()
+{
+   cout<<"                  YOU HAVE BOOKED YOUR ROOM FOR"<<" "<<mm<<" MONTH.";
+cout<<"\n";
+cout<<"                       AND DATE OF CHECKIN IS"<<" "<<d;
+cout<<"\n";
+cout<<"             THANK YOU FOR BOOKING YOUR ROOMS AT WONDERLAND";
+cout<<"\n";
+cout<<"                         WE HOPE TO SEE YOU SOON         ";
+getch();
+void home();
+home();
+}
+//----------------------------------------------------
+void border()
+{for(mmm=0;mmm<32;mmm++)
+{cout<<ch;}
+}
+
+//---------------------------------------------------------------------
+//----------------------- file for resort ------------------------------
+
+
+//---------------------------------------------------------------------
+//---------------------------------------------------------------------
+void dmain()     //function to choose the month of booking.
+{ yflag--;
+cout<<"\n";
+cout<<"\n";
+cout<<"                 CHOOSE THE MONTH YOU WANT TO BOOK YOUR ROOM                    ";
+cout<<"                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^                    ";
+cout<<"                                1.JANUARY";
+cout<<"\n";
+cout<<"                                2.FEBUARY";
+cout<<"\n";
+cout<<"                                3.MARCH";
+cout<<"\n";
+cout<<"                                4.APRIL";
+cout<<"\n";
+cout<<"                                5.MAY";
+cout<<"\n";
+cout<<"                                6.JUNE";
+cout<<"\n";
+cout<<"                                7.JULY";
+cout<<"\n";
+cout<<"                                8.AUGUST";
+cout<<"\n";
+cout<<"                                9.SEPTEMBER";
+cout<<"\n";
+cout<<"                                10.OCTOBER";
+cout<<"\n";
+cout<<"                                11.NOVEMBER";
+cout<<"\n";
+cout<<"                                12.DECEMBER";
+cout<<"\n";
+cout<<"\n";
+cout<<"                                 * ENTER * ->";
+cout<<"\n";
+//cin>>month;
+//****************************************************
+
+//function to write month of booking inside file.
+fstream outfile;
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>month;
+outfile.write((char*)&month,sizeof(month));
+outfile.close();
+//****************************************************
+}
+//----------------------------------------------------------------
+void jan()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+ cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ JANUARY ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+ cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+  int ja[7][7]={ 1,2,3,4,5,6,7,
+         8,9,10,11,12,13,14,
+         15,16,17,18,19,20,21,
+         22,23,24,25,26,27,28,
+         29,30,31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<ja[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+cout<<"********************************************************************************";
+ }
+//-------------------------------------------------------------------------
+void feb()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+ cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ FEBRUARY ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+ cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+ int f[7][7]={ 0,0,0,1,2,3,4,
+           5,6,7,8,9,10,11,
+           12,13,14,15,16,17,18,
+           19,20,21,22,23,24,25,
+           26,27,28};
+
+
+
+ for(i=0;i<5;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<f[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+}
+ cout<<"*******************************************************************************";
+}
+//------------------------------------------------------------------------
+void mar()
+{        clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MARCH ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+ cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+ cout<<"\n";
+ cout<<"*******************************************************************************";
+ int M[7][7]={ 0,0,0,1,2,3,4,
+           5,6,7,8,9,10,11,
+           12,13,14,15,16,17,18,
+           19,20,21,22,23,24,25,
+           26,27,28,29,30,31};
+
+
+
+ for(i=0;i<5;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<M[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+}
+ cout<<"*******************************************************************************";
+}
+//----------------------------------------------------------------------
+void apr()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+ cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ APRIL ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int A[7][7]={ 0,0,0,0,0,0,1,
+        2,3,4,5,6,7,8,
+        9,10,11,12,13,14,15,
+        16,17,18,19,20,21,22,
+        23,24,25,26,27,28,29,
+        30};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<A[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //---------------------------------------------------------------------
+ void may()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+  disp();
+ cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ MAY ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int Ma[7][7]={ 0,1,2,3,4,5,6,
+         7,8,9,10,11,12,13,
+         14,15,16,17,18,19,20,
+         21,22,23,24,25,26,27,
+         28,29,30,31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<Ma[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+void jun()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ JUNE ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int ju[7][7]={ 0,0,0,0,1,2,3,
+         4,5,6,7,8,9,10,
+         11,12,13,14,15,16,17,
+         18,19,20,21,22,23,24,
+         25,26,27,28,29,30};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<ju[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //------------------------------------------------------------------
+ void jul()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ JULY ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int jl[7][7]={ 0,0,0,0,0,0,1,
+         2,3,4,5,6,7,8,
+         9,10,11,12,13,14,15,
+         16,17,18,19,20,21,22,
+         23,24,25,26,27,28,29,
+         30,31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<jl[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+ void aug()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ AUGUST ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int au[7][7]={ 0,0,1,2,3,4,5,
+         6,7,8,9,10,11,12,
+         13,14,15,16,17,18,19,
+         20,21,22,23,24,25,26,
+         27,28,29,30,31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<au[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+  void sep()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ SEPTEMBER ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int sp[7][7]={ 0,0,0,0,0,1,2,
+         3,4,5,6,7,8,9,
+         10,11,12,13,14,15,16,
+         17,18,19,20,21,22,23,
+         24,25,26,27,28,29,30,};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<sp[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+   void oct()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ OCTOBER ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int oc[7][7]={ 1,2,3,4,5,6,7,
+         8,9,10,11,12,13,14,
+         15,16,17,18,19,20,21,
+         22,23,24,25,26,27,28,
+         29,30,31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<oc[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+  void nov()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ NOVEMBER ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int nv[7][7]={ 0,0,0,1,2,3,4,
+         5,6,7,8,9,10,11,
+         12,13,14,15,16,17,18,
+         19,20,21,22,23,24,25,
+         26,27,28,29,30};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<nv[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+  void dec()
+{ clrscr();
+ textcolor(6);
+ clrscr();
+ disp();
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^ DECEMBER ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"\n";
+cout<<"*******************************************************************************";
+cout<<"                SUN     MON     TUE    WED     THU     FRI     SAT             ";
+cout<<"\n";
+cout<<"*******************************************************************************";
+  int dc[7][7]={0,0,0,0,0,1,2,
+        3,4,5,6,7,8,9,
+        10,11,12,13,14,15,16,
+        17,18,19,20,21,22,23,
+        24,25,26,27,28,29,30,
+        31};
+
+
+
+ for(i=0;i<6;i++)
+ { cout<<"\n";
+   cout<<"\t";
+   cout<<"\t";
+   for(j=0;j<7;j++)
+    { cout<<dc[i][j];
+      cout<<"\t";
+    }
+ cout<<"\n";
+ }
+ cout<<"*******************************************************************************";
+ }
+ //-------------------------------------------------------------------
+
+void kmain()
+{
+clrscr();
+disp();
+int jj;
+dmain();
+ switch(month)
+ { case 1:jan();cout<<"\n";
+      strcpy(mm,"JANUARY");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+      //      cin>>d;
+//****************************
+ofstream outfile;
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+//------------------------------------------------------
+           if(d>=1 & d<=31)
+           { dd=d;
+         if(d==15)
+{cout<<"A happy advanced makra sankranti,we are giving you a 5% off on your bill      ";
+  counter++;}
+         if(d==26)
+{cout<<"A happy advanced Republic day,we are giving you a 5% off on your bill         ";
+  counter++;}
+
+        }
+//-------------------------------------------------------
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"JANUARY");
+      break;
+
+//---------------------------------------------------------------
+
+    case 2:feb();cout<<"\n";
+      strcpy(mm,"FEBRUARY");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+    //  cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=29)
+           { dd=d;  }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"FEBRUARY");
+      break;
+//---------------------------------------------------------------
+
+    case 3:mar();cout<<"\n";
+      strcpy(mm,"MARCH");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==7)
+{cout<<"A happy advanced maha shivarathari,we are giving you a 5% off on your bill ";
+ counter++;}
+           if(d==25)
+{cout<<"A happy advanced Good friday,we are giving you a 5% off on your bill      ";
+ counter++;}
+
+        }
+
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"MARCH");
+      break;
+
+//----------------------------------------------------------------
+    case 4:apr();cout<<"\n";
+    strcpy(mm,"APRIL");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+    //  cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=30)
+           { dd=d;
+
+           if(d==8)
+{cout<<"A happy advanced Ugadi,we are giving you a 5% off on your bill      ";
+counter++;}
+           if(d==14)
+{cout<<"A happy advanced Ambedker jayanthi,we are giving you a 5% off on your bill  ";}
+counter++;}
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"APRIL");
+      break;
+//-----------------------------------------------------------------
+    case 5:may();cout<<"\n";
+    strcpy(mm,"MAY");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;}
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"MAY");
+      break;
+//------------------------------------------------------------------
+    case 6:jun();cout<<"\n";
+    strcpy(mm,"JUNE");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+     //**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=30)
+           { dd=d;}
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          getch();
+          kmain();
+        }
+      strcpy(mm,"JUNE");
+      break;
+//------------------------------------------------------------------
+ case 7:jul();cout<<"\n";
+    strcpy(mm,"JULY");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+     //**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==6)
+{cout<<"A happy advanced EID UL FITR,we are giving you a 5% off on your bill      ";}
+  counter++;           }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"JULY");
+      break;
+//------------------------------------------------------------------
+ case 8:aug();cout<<"\n";
+    strcpy(mm,"AUGUST");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+ //**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==15)
+{cout<<"A happy advanced idependence day,we are giving you a 5% off on your bill ";}
+   counter++;          }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"AUGUST");
+      break;
+//------------------------------------------------------------------
+case 9:sep();cout<<"\n";
+    strcpy(mm,"SEPTEMBER");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+ //**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==5)
+{cout<<"A happy advanced Ganesha chaturthi,we are giving you a 5% off on your bill ";
+counter++;}
+           if(d==12)
+{cout<<"A happy advanced Bakrid,we are giving you a 5% off on your bill            ";
+counter++;}
+           if(d==14)
+{cout<<"A happy advanced Onam,we are giving you a 5% off on your bill      ";}
+ counter++;        }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"SEPTEMBER");
+      break;
+//------------------------------------------------------------------
+ case 10:oct();cout<<"\n";
+    strcpy(mm,"OCTOBER");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==2)
+{cout<<"A happy advanced Gandhi jaynthi,we are giving you a 5% off on your bill      ";
+counter++;}
+           if(d==11)
+{cout<<"A happy advanced Vijaydhasami,we are giving you a 5% off on your bill      ";
+counter++;}
+           if(d==29)
+{cout<<"A happy advanced nakara chaturdasi,we are giving you a 5% off on your bill    ";
+counter++;}
+           if(d==30)
+{cout<<"A happy advanced deepavali,we are giving you a 5% off on your bill      ";
+}
+           if(d==31)
+{cout<<"A happy advanced Balipadhiyami,we are giving you a 5% off on your bill      ";
+}
+
+           }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"OCTOBER");
+      break;
+//------------------------------------------------------------------
+  case 11:nov();cout<<"\n";
+    strcpy(mm,"NOVEMBER");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==1)
+{cout<<"A happy advanced Kanada rajyothsava,we are giving you a 5% off on your bill ";}
+           }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"NOVEMBER");
+      break;
+//------------------------------------------------------------------
+  case 12:dec();cout<<"\n";
+    strcpy(mm,"DECEMBER");
+      cout<<"TYPE THE DATE YOU WANT TO BOOK YOUR TICKET       PRESS 0 TO GO BACK";
+      cout<<"\n";
+     // cin>>d;
+//**********************************
+
+outfile.open("text1.txt",ios::binary|ios::app);
+cin>>d;
+outfile.write((char*)&d,sizeof(d));
+
+
+           if(d>=1 & d<=31)
+           { dd=d;
+
+           if(d==12)
+{cout<<"A happy advanced ID Milad,we are giving you a 5% off on your bill ";
+}
+           if(d==25)
+{cout<<"A happy advanced Christmas,we are giving you a 5% off on your bill ";}
+     }
+           else if(d==0)
+           { kmain();}
+           else
+        { cout<<"sorry the date you entered does not exist in this month";
+          cout<<"\n";
+          strcpy(mm,"");
+          getch();
+          kmain();
+        }
+      strcpy(mm,"DECEMBER");
+      break;
+//------------------------------------------------------------------
+      default:void kmain();kmain();
+      }
+
+ }
+//---------------------------------------------------------------------
+void disp1()
+{
+cout<<ch1;
+for( mmm=0;mmm<78;mmm++)
+{ cout<<ch4;}
+cout<<ch3;
+
+cout<<ch2<<"\t"<<"\t"<<"\t"<<"    "<<" HOTELS,RESORTS AND SPA"<<"\t"<<"\t"<<"               "<<ch2;
+
+cout<<ch2<<"                                                                              "<<ch2;
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+
+}
+//----------------------------------------------------------------------
+void bkdeluxe() //this function is used to get all data from the user and write into a file.
+
+{
+clrscr();
+disp();
+disp1();
+cout<<"                       WONDERLAND DELUXE HOTELS AND RESORTS                     ";
+ for( mmm=0;mmm<80;mmm++)
+ { cout<<ch4;}
+cout<<"ENTER THE FOLLOWING DETAILS ONE BY ONE IN ORDER TO PROCEED FURTHER";
+cout<<"\n";
+ for( mmm=0;mmm<160;mmm++)
+ { cout<<ch4;}
+cout<<"\n";
+//(((***&****())(***************************************************
+fstream outfile;
+outfile.open("text10.txt",ios::binary|ios::app);
+obj.accept();
+outfile.write((char*)&obj,sizeof(obj));
+outfile.close();
+//((((******************+++++++++++++__++=++++++********************
+}
+//----------------------------------------------------------------------
+void villa()
+{
+clrscr();
+disp();
+disp1();
+cout<<"                       WONDERLAND DELUXE VILLAS                                 ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"         WONDERLAND DELUXE VILLAS PROVIDE YOU EXTREME SOPHISTICATION            ";
+cout<<"AND COMFORTABLE STAY WHEN YOU ARE WITH US;NOT COMPLETED ENJOYING THE PARK YET.  ";
+cout<<"SO WHY WAIT BOOK YOUR ROOM BEFORE 17th 2017 AND AVAIL EXCITING OFFERS.          ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"1.BOOK YOUR TICKET";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"    2.GO BACK     ";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+
+cout<<"ENTER YOUR CHOICE";
+cout<<"\n";
+cout<<"->";
+int c1; //----------------------------------
+cin>>c1;
+if(c1==1)
+{
+flag++;
+bkdeluxe();
+clrscr();
+disp();
+cout<<"\n";
+cout<<"FILL IN THE FOLOWING DETAILS TO PROCEED FURTHER";
+cout<<"\n";
+cout<<"ALL THESE DETAILS ARE MANDATORY TO BE ENTERED";
+cout<<"\n";
+kmain();
+getch();
+clrscr();
+disp();
+cout<<"\n"<<"\n"<<"\n"<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+cout<<"\n";
+cout<<"                                 PLEASE WAIT          ";
+cout<<"\n";
+cout<<"                        WE ARE PROCESSING YOUR REQUEST";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+delay(7000);
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                 CONGRATULATIONS YOUR ROOMS ARE RESERVED"<<"\n";
+cout<<"               *********************************************";
+cout<<"\n";
+cout<<"                                 BILL SUMMARY  ";
+cout<<"\n";
+
+obj.roomdisplay();
+calcroom1();
+datedisplay();
+cout<<"\n";
+
+
+
+}
+else
+{ void mfun();
+  mfun();}
+}
+//-------------------------------------------------------------------
+void resort()
+{
+clrscr();
+disp();
+disp1();
+cout<<"                       WONDERLAND DELUXE RESORTS                                ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"    WONDERLAND DELUXE RESORT  PROVIDE YOU EXTREME SOPHISTICATION  AND        ";
+cout<<"AND COMFORTABLE STAY WHEN YOU ARE WITH US;NOT COMPLETED ENJOYING THE PARK YET.  ";
+cout<<"SO WHY WAIT BOOK YOUR ROOM BEFORE 17th 2017 AND AVAIL EXCITING OFFERS.          ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"1.BOOK YOUR TICKET";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"    2.GO BACK     ";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+
+cout<<"\n";
+cout<<"ENTER YOUR CHOICE";
+cout<<"\n";
+cout<<"->";
+int c1; //----------------------------------
+cin>>c1;
+if(c1==1)
+{
+flag++;
+bkdeluxe();
+clrscr();
+disp();
+cout<<"\n";
+cout<<"FILL IN THE FOLOWING DETAILS TO PROCEED FURTHER";
+cout<<"\n";
+cout<<"ALL THESE DETAILS ARE MANDATORY TO BE ENTERED";
+cout<<"\n";
+kmain();
+getch();
+clrscr();
+disp();
+cout<<"\n"<<"\n"<<"\n"<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+cout<<"\n";
+cout<<"                                 PLEASE WAIT          ";
+cout<<"\n";
+cout<<"                        WE ARE PROCESSING YOUR REQUEST";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+delay(7000);
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                 CONGRATULATIONS YOUR ROOMS ARE RESERVED"<<"\n";
+cout<<"               *********************************************";
+cout<<"                                 BILL SUMMARY  ";
+cout<<"\n";
+obj.roomdisplay();
+calcroom2();
+datedisplay();
+cout<<"\n";
+
+}
+else
+{ void mfun();
+  mfun();
+}
+}
+
+//----------------------------------------------------------------------
+void value()
+{
+clrscr();
+disp();
+disp1();
+cout<<"                       WONDERLAND VALUE RESORTS                                 ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"       WONDERLAND VALUE RESORT  PROVIDE YOU A COMFORTABLE STAY WITH US          ";
+cout<<"        WITH AFFORDABLE COST;WHILE NOT COMPLETED ENJOYING THE PARK YET.         ";
+cout<<"    SO WHY WAIT BOOK YOUR ROOM BEFORE 17th 2017 AND AVAIL EXCITING OFFERS.      ";
+for( mmm=0;mmm<80;mmm++)
+{ cout<<ch4;}
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"1.BOOK YOUR TICKET";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<"        "<<"    2.GO BACK     ";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<" ";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch4;}
+cout<<"\n";
+
+cout<<"ENTER YOUR CHOICE";
+cout<<"\n";
+cout<<"->";
+int c1; //----------------------------------
+cin>>c1;
+if(c1==1)
+{
+flag++;
+bkdeluxe();
+clrscr();
+disp();
+cout<<"\n";
+cout<<"FILL IN THE FOLOWING DETAILS TO PROCEED FURTHER";
+cout<<"\n";
+cout<<"ALL THESE DETAILS ARE MANDATORY TO BE ENTERED";
+cout<<"\n";
+kmain();
+getch();
+clrscr();
+disp();
+cout<<"\n"<<"\n"<<"\n"<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+cout<<"\n";
+cout<<"                                 PLEASE WAIT          ";
+cout<<"\n";
+cout<<"                        WE ARE PROCESSING YOUR REQUEST";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( mmm=0;mmm<30;mmm++)
+{ cout<<ch;}
+delay(7000);
+clrscr();
+disp();
+cout<<"\n";
+cout<<"                 CONGRATULATIONS YOUR ROOMS ARE RESERVED"<<"\n";
+cout<<"               *********************************************";
+cout<<"                                 BILL SUMMARY  ";
+cout<<"\n";
+
+obj.roomdisplay();
+calcroom3();
+datedisplay();
+cout<<"\n";
+flag++;
+}
+else
+{void mfun();
+mfun();
+}
+}
+
+//---------------------------------------------------------------------
+void mfun()
+{
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+disp1();
+cout<<"\n";
+cout<<"  EXPLORE OUR GREAT COLLECTION OF RESORT HOTELS";
+cout<<"\n";
+cout<<"  SAVE UPTO 25% ON ROOMS ON SELECT WONDERLAND HOTELS";
+cout<<"\n";
+cout<<"________________________________________________________________________________";
+cout<<"ENTER YOUR CHOICE";
+cout<<"\n";
+cout<<"******************"<<"                              ";border()                   ;
+cout<<"\n";
+cout<<"1.DELUXE VILLLAS.   ($$$$)"<<"                       "<<"GET EXCITING DISCOUNTS ON ALL  ";
+cout<<"2.DELUXE RESORT HOTELS ($$$)"<<"                     "<<"SPECIAL OCASSIONS!!            ";
+cout<<"3.VALUE RESORT HOTELS ($$)  "<<"                     "<<"EXCLUSIVELY ON SELECTED        ";
+cout<<"                            "<<"                     "<<"WONDERLAND RESORTS.            ";
+cout<<"5.GO BACK                                            "<<"                               ";
+cout<<"                                            ";border()                   ;
+cout<<"ENTER YOUR CHOICE";
+cout<<"\n";
+cout<<"->";
+int choice2;
+cin>>choice2;
+if(choice2==1)
+{villa();}
+else if(choice2==2)
+{resort();}
+else if(choice2==3)
+{ value();}
+//else if(choice2==4)
+//{ camp();}
+else if(choice2==5)
+{void home();
+ home(); }
+else
+{cout<<"ERROR CHOOSE AGAIN";
+ cout<<"\n";
+ cout<<"CLICK ENTER TO CHOOSE AGAIN";
+ getch();
+ mfun();
+}
+getch();
+}
+
+
+void modify()
+{
+int yu;
+ clrscr();
+ fstream file;
+ file.open("text10.txt",ios::in|ios::out|ios::binary);
+ cout<<"ENTER CUSTOMER NAME;TO BE MODIFIED";
+ cout<<"\n";
+ gets(mod);
+ cout<<"\n";
+
+ while(file.read((char*)&obj,sizeof(obj)))
+   { if(strcmp(mod,obj.fname)==0)
+
+     { cout<<"ENTER NEW DATA";
+       obj.accept();
+       int pos=-1*sizeof(obj);
+       file.seekg(pos,ios::cur);
+       file.write((char*)&obj,sizeof(obj));
+
+       cout<<"\n";
+       cout<<"\n";
+       cout<<"CONGRATULATIONS YOU HAVE SUCCESSFULLY UPDATED CUSTOMER DETAILS";
+       cout<<"\n";
+       cout<<"press enter to go back";
+       getch();
+       file.close();
+       void adminfunc();
+       adminfunc();
+
+
+      }
+      else
+      {
+    cout<<"CUSTOMER NOT FOUND";
+    cout<<"\n";
+    cout<<"choose one of the following";
+    cout<<"\n";
+    cout<<"1.TO ENTER AGAIN         2.GO BACK";
+    cout<<"\n";
+    cin>>yu;
+    if(yu==1)
+    {
+    file.close();
+    void modify();
+    modify();
+    }
+
+    if(yu==2)
+    { file.close();
+     void adminfunc();
+     adminfunc(); }
+
+
+      }
+
+   }
+
+  file.close();
+}
+
+//***************************************************
+//function used to display the day and month written into the file
+void diss()
+{ fstream infile;
+  infile.open("text10.txt",ios::binary|ios::in);
+  while(infile.read((char*)&obj,sizeof(obj)))
+  {
+  cout<<"         month of check in is = ";cout<<month;
+  cout<<"\n";
+  cout<<"         day of check in is ="<<d;
+  }
+  infile.close();
+}
+//----------------------------------------------------
+//************************************************************************
+//function to delete the contents in the file;
+
+void delete1()
+{
+clrscr();
+disp();
+cout<<"\n";
+char mod[10];
+ cout<<"ENTER CUSTOMER NAME;TO BE DELETED";
+ cout<<"\n";
+ gets(mod);
+ cout<<"\n";
+
+    ifstream inFile;
+    inFile.open("text10.txt", ios::binary);
+
+    ofstream outFile;
+    outFile.open("temp.txt", ios::out | ios::binary);
+
+    while(inFile.read((char*)&obj,sizeof(obj)))
+   {
+        if(strcmp(mod,obj.fname)!=0)
+           {
+
+       outFile.write((char*)&obj, sizeof(obj));
+           }
+
+  }
+
+    inFile.close();
+    outFile.close();
+
+    remove("text10.txt");
+    rename("temp.txt", "text10.txt");
+getch();
+cout<<"CUSTOMER RECORD DELETED";
+cout<<"\n";
+getch();
+void adminfunc();
+adminfunc();
+}
+
+//************************************************************************
+void display()//function used to display all the contents written into the file.
+
+{
+
+  clrscr();
+  disp();
+  fstream infile;
+  int ffg=1;
+  infile.open("text10.txt",ios::binary|ios::in);
+ while(infile.read((char*)&obj,sizeof(obj)))
+  {cout<<"\n";
+  cout<<"CUSTOMER"<<ffg<<":-"<<"\n";
+  obj.roomdisplay();
+  ffg++;
+  }
+  infile.close();
+  //diss();
+
+}
+
+void pay()
+{
+flag=0;
+yflag++;
+userflag=0;
+
+char x[]="TOTAL PRICE FOR RESORTS BOOKED=";
+char xy[]="TOTAL PRICE FOR RIDES BOOKED=";
+char xyz[]="TOTAL PRICE FOR MEALS BOOKED=";
+char xyzw[]=" NET PRICE=";
+clrscr();
+textcolor(RED);
+clrscr();
+disp();
+
+cout<<"                         BILL                                ";
+
+cout<<"\n";
+
+cout<<"\n";
+gotoxy(22,10);
+for(int i=0;i<32;i++)
+{delay(24);
+ cout<<x[i];
+ }
+cout<<roomcost;
+gotoxy(22,12);
+for(i=0;i<30;i++)
+{delay(24);
+ cout<<xy[i];
+ }
+cout<<rideprice;
+gotoxy(22,14);
+for(i=0;i<30;i++)
+{delay(24);
+ cout<<xyz[i];
+ }cout<<foodprice;
+ gotoxy(22,16);
+for(i=0;i<11;i++)
+{delay(24);
+ cout<<xyzw[i];
+ }
+ cout<<rideprice+foodprice+roomcost;
+gotoxy(36,18);
+cout<<"   PAY";
+getch();
+}
+//-------------------------------------
+
+void review()
+{
+char x[]="TOTAL PRICE FOR RESORTS BOOKED=";
+char xy[]="TOTAL PRICE FOR RIDES BOOKED=";
+char xyz[]="TOTAL PRICE FOR MEALS BOOKED=";
+char xyzw[]=" NET PRICE=";
+clrscr();
+textcolor(RED);
+clrscr();
+disp();
+
+cout<<"                         BILL                                ";
+
+cout<<"\n";
+
+cout<<"\n";
+gotoxy(22,10);
+for(int i=0;i<32;i++)
+{delay(24);
+ cout<<x[i];
+ }
+cout<<roomcost;
+gotoxy(22,12);
+for(i=0;i<30;i++)
+{delay(24);
+ cout<<xy[i];
+ }
+cout<<rideprice;
+gotoxy(22,14);
+for(i=0;i<30;i++)
+{delay(24);
+ cout<<xyz[i];
+ }cout<<foodprice;
+ gotoxy(22,16);
+for(i=0;i<11;i++)
+{delay(24);
+ cout<<xyzw[i];
+ }
+ cout<<rideprice+foodprice+roomcost;
+gotoxy(36,18);
+cout<<"   PRESS ENTER TO GO BACK  ";
+getch();
+void home();
+home();
+}
+
+//-------------------------------------
+//this is the main function; acts as a portal to all other functions .
+//this function is called when you sign in as customer and not as a admin.
+void home()
+{
+clrscr();
+textcolor(6);
+clrscr();
+int cho;
+
+cout<<"********************************** WONDERLAND *********************************";
+cout<<"******************************** ADVENTURE  PARK ******************************";
+cout<<"************************ LIFE REFRESHING ADVNTURE PARK ***************************";
+for(int gh=0;gh<80;gh++)
+{ cout<<ch5;}
+cout<<"\n";
+cout<<"  1.INFORMATION    2.RESORTS    4.EXIT  5.OFFERS  6.BOOK YOUR RIDES  7.CART";
+cout<<"\n";
+cout<<"******************************************************************************";
+cout<<"  8.ADMIN LOGIN  9.PAY  3.VIEW RIDES BOOKED  10.DELETE RIDES BOOKED  11.MEAL   ";
+
+cout<<"\n";
+for(gh=0;gh<80;gh++)
+{ cout<<ch11;}
+
+cout<<"                                  * ABOUT US *                                  ";
+for(gh=0;gh<80;gh++)
+{ cout<<"*";}
+cout<<" FEELING BORED,LAZY,DULL,TIRED OR SWEATING IN SUN, YOU CAN PUT AN END TO ALL OF ";
+cout<<" THESE.WONDERLAND WATERPARK IS HERE IN BANGALORE TO SATISFY ALL YOUR NEEDS.     ";
+cout<<" BEAUTIFUL STRUCTURES,EXCITING AND THRILLING RIDES, LUXURIOUS HOTELS,RESORTS,   ";
+cout<<" RELAXING SPAS; ALL THESE IN ONE SINGLE PLACE JUST FOR YOU.SO WHY WAIT COME AND ";
+cout<<" ENJOY TO YOUR FULLEST.                                                         ";
+cout<<"                        +++++++++++++++++++++++++++++++++";
+cout<<"\n";
+cout<<"                         CONTACT US - 9880353367";
+cout<<"\n";
+cout<<"                         EMAIL ID - wonderland@gmail.com";
+cout<<"\n";
+cout<<"                        +++++++++++++++++++++++++++++++++";
+cout<<"\n";
+cout<<"^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^";
+cout<<"                            ** enter your choice **";
+gotoxy(33,23);
+cout<<ch1<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch3;
+gotoxy(33,24);
+cout<<ch2<<"              "<<ch2;
+gotoxy(33,25);
+cout<<ch7<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch4<<ch6;
+gotoxy(41,24);
+cin>>cho;
+if(cho==11)
+{ void food1();
+  food1();
+           }
+//------------------
+if(cho==2)
+{   if(flag>=1)
+     {
+       clrscr();
+       disp();
+       cout<<"\n";
+       cout<<"\n";
+       cout<<"         BEFORE YOU GO AHEAD BOOKING ANOTHER RESORT TICKET";
+       cout<<"\n";
+       cout<<"        YOU MUST FIRST 'PAY' FOR THE ALREADY BOOKED TICKET";
+       cout<<"\n";
+       cout<<"          FOR PAYING, GO TO THE 'PAY' OPTION IN HOME PAGE ";
+       cout<<"\n";
+       getch();
+       void home();
+       home();
+     }
+     else
+     {
+     void mfun();
+     mfun();
+    // yflag--;
+     }
+}
+//------------------
+if(cho==3)
+{ void display1();
+   display1();
+   getch();
+   void home();
+   home();
+    }
+//------------------
+if(cho==4)
+{  exit(0);                }
+//------------------
+if(cho==5)
+{
+     if(yflag>0)
+     {void main3();
+      main3();
+      yflag++;
+     }
+}
+//------------------
+if(cho==6)
+{
+
+void rides();
+rides();
+yflag++;                 }
+//------------------
+if(cho==7)
+{  void review();
+   review();                }
+//------------------
+if(cho==8)
+{ void admin();
+   admin();            }
+//------------------
+if(cho==9)
+{ void pay();
+  pay();
+  getch();
+  void home();
+  home();      }
+
+if(cho==10)
+{  void delete3();
+   delete3();
+   getch();
+   void home();
+   home();
+}
+if(cho==1)
+{ void rules();
+ rules();}
+
+//------------------
+else
+{ cout<<"ENTER A VALID OPTION";
+  cout<<"\n";
+  getch();
+  void home();
+  home();
+}
+getch();
+}
+
+
+//^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+//-----------------------------
+
+void ddd()
+{
+for(int i=0;i<80;i++)
+{cout<<ch4;}
+}
+void water()
+{
+
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"\n";
+ddd();
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+ddd();
+char e[]="E X C L U S I V E";
+char f[]="W A T E R ";
+char g[]="R I D E S ";
+gotoxy(17,10);
+cout<<"                ";
+for(int v=0;v<17;v++)
+{ delay(100);
+  cout<<e[v];
+}
+gotoxy(19,12);
+cout<<"                  ";
+for(v=0;v<9;v++)
+{ delay(20);
+ cout<<f[v];
+}
+gotoxy(19,14);
+cout<<"                  ";
+for(v=0;v<10;v++)
+{delay(20);
+cout<<g[v];
+}
+gotoxy(6,22);
+cout<<ch10;
+delay(40);
+gotoxy(7,21);
+delay(40);
+cout<<ch10;
+gotoxy(8,20);
+delay(40);
+cout<<ch10;
+gotoxy(9,19);
+delay(40);
+cout<<ch10;
+gotoxy(11,19);
+delay(40);
+cout<<ch10;
+gotoxy(12,20);
+delay(40);
+cout<<ch10;
+gotoxy(13,21);
+delay(40);
+cout<<ch10;
+gotoxy(14,22);
+delay(40);
+cout<<ch10;
+gotoxy(16,21);
+delay(40);
+cout<<ch10;
+gotoxy(17,20);
+delay(40);
+cout<<ch10;
+gotoxy(18,19);
+delay(40);
+cout<<ch10;
+gotoxy(19,19);
+delay(40);
+cout<<ch10;
+gotoxy(20,20);
+delay(40);
+cout<<ch10;
+gotoxy(21,21);
+delay(40);
+cout<<ch10;
+gotoxy(22,22);
+delay(40);
+cout<<ch10;
+gotoxy(24,21);
+delay(40);
+cout<<ch10;
+gotoxy(25,20);
+delay(40);
+cout<<ch10;
+gotoxy(26,19);
+delay(40);
+cout<<ch10;
+gotoxy(28,19);
+delay(40);
+cout<<ch10;
+gotoxy(29,20);
+delay(40);
+cout<<ch10;
+gotoxy(30,21);
+delay(40);
+cout<<ch10;
+gotoxy(31,22);
+delay(40);
+cout<<ch10;
+gotoxy(33,21);
+delay(40);
+cout<<ch10;
+gotoxy(34,20);
+delay(40);
+cout<<ch10;
+gotoxy(35,19);
+delay(40);
+cout<<ch10;
+gotoxy(36,19);
+delay(40);
+cout<<ch10;
+gotoxy(37,20);
+delay(40);
+cout<<ch10;
+gotoxy(38,21);
+delay(40);
+cout<<ch10;
+gotoxy(39,22);
+delay(40);
+cout<<ch10;
+gotoxy(41,21);
+delay(40);
+cout<<ch10;
+gotoxy(42,20);
+delay(70);
+cout<<ch10;
+gotoxy(43,19);
+delay(40);
+cout<<ch10;
+gotoxy(44,19);
+delay(40);
+cout<<ch10;
+gotoxy(45,20);
+delay(70);
+cout<<ch10;
+gotoxy(46,21);
+delay(70);
+cout<<ch10;
+gotoxy(47,22);
+delay(70);
+cout<<ch10;
+gotoxy(49,21);
+delay(70);
+cout<<ch10;
+gotoxy(50,20);
+delay(70);
+cout<<ch10;
+gotoxy(51,19);
+delay(70);
+cout<<ch10;
+gotoxy(52,19);
+delay(70);
+cout<<ch10;
+gotoxy(53,20);
+delay(70);
+cout<<ch10;
+gotoxy(54,21);
+delay(70);
+cout<<ch10;
+gotoxy(55,22);
+delay(70);
+cout<<ch10;
+gotoxy(57,21);
+delay(70);
+cout<<ch10;
+gotoxy(58,20);
+delay(70);
+cout<<ch10;
+gotoxy(59,19);
+delay(70);
+cout<<ch10;
+gotoxy(60,19);
+delay(70);
+cout<<ch10;
+gotoxy(61,20);
+delay(70);
+cout<<ch10;
+gotoxy(62,21);
+delay(70);
+cout<<ch10;
+gotoxy(63,22);
+delay(70);
+cout<<ch10;
+gotoxy(65,21);
+delay(70);
+cout<<ch10;
+gotoxy(66,20);
+delay(70);
+cout<<ch10;
+gotoxy(67,19);
+delay(70);
+cout<<ch10;
+gotoxy(68,19);
+delay(70);
+cout<<ch10;
+gotoxy(69,20);
+delay(70);
+cout<<ch10;
+gotoxy(70,21);
+delay(70);
+cout<<ch10;
+gotoxy(71,22);
+delay(70);
+cout<<ch10;
+gotoxy(72,21);
+delay(70);
+cout<<ch10;
+gotoxy(73,20);
+delay(70);
+cout<<ch10;
+gotoxy(74,19);
+delay(70);
+cout<<ch10;
+gotoxy(1,1);
+}
+
+void thrill()
+{
+
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"\n";
+ddd();
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+ddd();
+char e[]="T H R I L L I N G";
+char f[]="S K Y   R I D E S";
+char g[]="EXPERIENCE SPEED AT 160 KMPH";
+delay(30);
+gotoxy(17,10);
+cout<<"                ";
+for(int v=0;v<18;v++)
+{ delay(100);
+  cout<<e[v];
+}
+gotoxy(14,12);
+cout<<"                  ";
+for(v=0;v<18;v++)
+{ delay(20);
+ cout<<f[v];
+}
+gotoxy(19,14);
+cout<<"                  ";
+for(v=0;v<29;v++)
+{delay(20);
+cout<<g[v];
+}
+gotoxy(6,22);
+cout<<ch10;
+delay(50);
+gotoxy(8,22);
+delay(50);
+cout<<ch10;
+gotoxy(10,22);
+delay(50);
+cout<<ch10;
+gotoxy(12,22);
+delay(50);
+cout<<ch10;
+gotoxy(14,22);
+delay(50);
+cout<<ch10;
+gotoxy(16,22);
+delay(50);
+cout<<ch10;
+gotoxy(18,22);
+delay(50);
+cout<<ch10;
+gotoxy(20,21);
+delay(50);
+cout<<ch10;
+gotoxy(22,20);
+delay(50);
+cout<<ch10;
+gotoxy(24,19);
+delay(50);
+cout<<ch10;
+gotoxy(26,18);
+delay(50);
+cout<<ch10;
+gotoxy(28,19);
+delay(50);
+cout<<ch10;
+gotoxy(30,20);
+delay(50);
+cout<<ch10;
+gotoxy(32,21);
+delay(50);
+cout<<ch10;
+gotoxy(34,22);
+delay(50);
+cout<<ch10;
+gotoxy(36,21);
+delay(50);
+cout<<ch10;
+gotoxy(38,20);
+delay(50);
+cout<<ch10;
+gotoxy(40,19);
+delay(50);
+cout<<ch10;
+gotoxy(42,18);
+delay(50);
+cout<<ch10;
+gotoxy(44,17);
+delay(50);
+cout<<ch10;
+gotoxy(46,16);
+delay(50);
+cout<<ch10;
+gotoxy(48,15);
+delay(50);
+cout<<ch10;
+gotoxy(52,14);
+delay(50);
+cout<<ch10;
+gotoxy(54,13);
+delay(50);
+cout<<ch10;
+gotoxy(56,13);
+delay(50);
+cout<<ch10;
+gotoxy(58,13);
+delay(50);
+cout<<ch10;
+gotoxy(60,13);
+delay(50);
+cout<<ch10;
+gotoxy(62,12);
+delay(50);
+cout<<ch10;
+gotoxy(64,11);
+delay(50);
+cout<<ch10;
+gotoxy(66,10);
+delay(50);
+cout<<ch10;
+gotoxy(68,9);
+delay(50);
+cout<<ch10;
+gotoxy(70,8);
+delay(50);
+cout<<ch10;
+gotoxy(72,7);
+delay(50);
+cout<<ch10;
+gotoxy(1,1);
+}
+void clear()
+{for(int i=0;i<1905;i++)
+{delay(2);
+cout<<ch9;
+}
+}
+
+void wonderland()
+{
+clrscr();
+textcolor(6);
+clrscr();
+gotoxy(4,12);
+for(int i=0;i<25;i++)
+  { delay(20);
+    cout<<"*";
+  }
+
+char txt[]="  W O N D E R L A N D  ";
+for(i=0;i<23;i++)
+  { delay(15);
+    cout<<txt[i];
+  }
+for( i=0;i<25;i++)
+  { delay(20);
+    cout<<"*";
+  }
+char txt2[]=" F A N T A S Y  P A R K ";
+gotoxy(4,13);
+for(i=0;i<25;i++)
+  { delay(30);
+    cout<<"*";
+  }
+for(i=0;i<23;i++)
+  { delay(15);
+    cout<<txt2[i];
+  }
+for( i=0;i<25;i++)
+  { delay(30);
+    cout<<"*";
+  }
+gotoxy(26,11);
+char bzb='*';
+cout<<bzb;
+gotoxy(28,10);
+cout<<bzb;
+gotoxy(30,9);
+delay(20);
+cout<<bzb;
+gotoxy(32,8);
+delay(20);
+cout<<bzb;
+gotoxy(34,7);
+delay(20);
+cout<<bzb;
+gotoxy(36,6);
+delay(20);
+cout<<bzb;
+gotoxy(38,5);
+delay(20);
+cout<<bzb;
+gotoxy(40,4);
+delay(20);
+cout<<bzb;
+//-----------
+gotoxy(42,5);
+delay(20);
+cout<<bzb;
+gotoxy(44,6);
+delay(20);
+cout<<bzb;
+gotoxy(46,7);
+delay(20);
+cout<<bzb;
+gotoxy(48,8);
+delay(20);
+cout<<bzb;
+gotoxy(50,9);
+delay(20);
+cout<<bzb;
+gotoxy(52,10);
+
+delay(20);cout<<bzb;
+gotoxy(54,11);
+delay(20);
+cout<<bzb;
+gotoxy(26,14);
+delay(20);
+cout<<bzb;
+//---
+gotoxy(28,15);
+delay(20);
+cout<<bzb;
+gotoxy(30,16);
+delay(20);
+cout<<bzb;
+gotoxy(32,17);
+delay(20);
+cout<<bzb;
+gotoxy(34,18);
+delay(20);
+cout<<bzb;
+gotoxy(36,19);
+delay(20);
+cout<<bzb;
+gotoxy(38,20);
+delay(20);
+cout<<bzb;
+gotoxy(40,21);
+delay(20);
+cout<<bzb;
+
+//------
+gotoxy(42,20);
+delay(20);
+cout<<bzb;
+delay(20);
+gotoxy(44,19);
+delay(20);
+cout<<bzb;
+gotoxy(46,18);
+delay(20);
+cout<<bzb;
+gotoxy(48,17);
+delay(20);
+cout<<bzb;
+gotoxy(50,16);
+delay(20);
+cout<<bzb;
+gotoxy(52,15);
+delay(20);
+cout<<bzb;
+gotoxy(54,14);
+delay(20);
+cout<<bzb;
+for(i=0;i<17;i++)
+{
+delay(90);
+cout<<" ";}
+}
+//---------------------
+void pre()
+{
+
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"\n";
+ddd();
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+ddd();
+char gf[]="P R E S E N T S ";
+gotoxy(36,15);
+for(int i=0;i<17;i++)
+{ delay(40);
+  cout<<gf[i];
+}
+for(i=0;i<15;i++)
+{ delay(35);
+  cout<<" ";
+}
+}
+//---------------------------------------
+void and()
+{
+
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+cout<<"\n";
+ddd();
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+cout<<ch<<"                                                                              "<<ch;
+ddd();
+char gf[]="  A  N  D ";
+gotoxy(36,15);
+for(int i=0;i<11;i++)
+{ delay(80);
+  cout<<gf[i];
+}
+for(i=0;i<15;i++)
+{ delay(55);
+  cout<<" ";
+}
+}
+//------------------------------------------------------
+//*******************************************************
+void m11()
+{
+textcolor(6);
+clrscr();
+disp();
+gotoxy(19,11);
+cout<<ch1;
+for(int i=0;i<43;i++)
+{cout<<ch4;}
+cout<<ch3;
+gotoxy(19,12);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+
+gotoxy(19,13);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+
+gotoxy(19,14);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+gotoxy(19,15);
+cout<<ch7;
+for( i=0;i<43;i++)
+{cout<<ch4;}
+cout<<ch6;
+gotoxy(20,14);
+for(i=0;i<43;i++)
+{cout<<ch12;}
+gotoxy(20,12);
+cout<<"\t";
+cout<<"     VERIFYING CREDENTIALS...";
+gotoxy(20,14);
+for(i=0;i<43;i++)
+{
+delay(150);
+cout<<ch13;
+
+}
+
+}
+//-------------------------------------------------------------
+void adminfunc()
+{
+int gq3;
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+gotoxy(9,6);
+cout<<ch1;
+for(int y=0;y<60;y++)
+{cout<<ch4;}
+cout<<ch3;
+gotoxy(9,7);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,8);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,9);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,10);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,11);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,12);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,13);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,14);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,15);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,16);
+cout<<ch7;
+for(y=0;y<60;y++)
+{cout<<ch4;}
+cout<<ch6;
+//-----
+gotoxy(9,17);
+cout<<ch1;
+for(y=0;y<60;y++)
+{cout<<ch4;}
+cout<<ch3;
+gotoxy(9,18);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+gotoxy(9,19);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+
+gotoxy(9,20);
+cout<<ch2<<"                                                            "<<ch2;
+cout<<"\n";
+
+gotoxy(9,21);
+cout<<ch7;
+for(y=0;y<60;y++)
+{cout<<ch4;}
+cout<<ch6;
+gotoxy(10,7)  ;
+cout<<"                        ADMIN PROPERTIES";
+gotoxy(10,8);
+for(y=0;y<60;y++)
+{cout<<ch4;}
+gotoxy(10,9);
+cout<<"RESORT BOOKED:";
+gotoxy(10,11);
+cout<<"      1.VIEW               2.MODIFY             3.DELETE";
+gotoxy(10,12);
+for(y=0;y<60;y++)
+{cout<<ch4;}
+gotoxy(10,13);
+cout<<"RIDES BOOKED:";
+gotoxy(10,15);
+cout<<"            4.VIEW                      7.DELETE ";
+gotoxy(10,18);
+cout<<"USER DETAILS";
+gotoxy(10,20);
+cout<<"      5.VIEW               6.MODIFY             9.DELETE";
+gotoxy(18,22);
+cout<<"                  10.GO BACK";
+gotoxy(16,24);
+cout<<" ENTER->";
+cin>>gq3;
+//-------------------
+if(gq3==1)
+{ void display();
+    display();
+    cout<<"\n";
+    cout<<"PRESS 0 TO GO BACK";
+    getch();
+    void adminfunc();
+    adminfunc();}
+//-------------------
+if(gq3==2)
+{void modify();
+ modify();}
+//-----------------
+if(gq3==3)
+{void delete1();
+ delete1();
+}
+//-----------------
+if(gq3==5)
+{dispuserdetails();
+getch();
+void adminfunc();
+adminfunc();
+}
+//-----------------
+if(gq3==7)
+{
+ void delete3();
+ delete3();
+ getch();
+ void adminfunc();
+ adminfunc();
+}
+//-----------------
+if(gq3==6)
+{
+ modify1();
+}
+//-----------------
+if(gq3==4)
+{void display1();
+ display1();
+ getch();
+ void adminfunc();
+ adminfunc();}
+//-----------------
+if(gq3==9)
+{
+ void delete2();
+ delete2();
+}
+//----------------
+if(gq3==10)
+{
+ void home();
+ home();
+}
+//-----------------
+getch();
+
+}
+
+//--------------------------------------
+void load()
+{
+clrscr();
+textcolor(6);
+clrscr();
+disp();
+gotoxy(19,11);
+cout<<ch1;
+for(int i=0;i<43;i++)
+{cout<<ch4;}
+cout<<ch3;
+gotoxy(19,12);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+
+gotoxy(19,13);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+
+gotoxy(19,14);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+
+gotoxy(19,15);
+cout<<ch2;
+for(i=0;i<43;i++)
+{cout<<" ";}
+cout<<ch2;
+gotoxy(19,16);
+cout<<ch7;
+for( i=0;i<43;i++)
+{cout<<ch4;}
+cout<<ch6;
+gotoxy(20,15);
+for(i=0;i<43;i++)
+{cout<<ch12;}
+gotoxy(20,12);
+cout<<"               PLEASE WAIT ";
+gotoxy(20,13);
+cout<<"\t";
+cout<<" CREATING HOSPITALITY SETTINGS... ";
+gotoxy(20,15);
+for(i=0;i<43;i++)
+{
+delay(100);
+cout<<ch13;
+
+}
+
+
+}
+
+
+//---------------------------------------------------
+void admin()
+{
+
+textcolor(6);
+clrscr();
+disp();
+cout<<"                                    ADMIN LOGIN                                 ";
+cout<<"\n";
+cout<<"                    ENTER FOLLOWING DETAILS TO PROCEED FURTHER";
+cout<<"\n";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for(int aa=0;aa<33;aa++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"\t"<<"\t"<<"\t"<<ch;
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<ch<<" "<<"USERNAME:"<<"                     "<<ch;
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( aa=0;aa<33;aa++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( aa=0;aa<33;aa++)
+{ cout<<ch;}
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"\t"<<"\t"<<"\t"<<ch;
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t"<<ch<<" "<<"PASSWORD:"<<"                     "<<ch;
+cout<<"\n";
+cout<<"\t"<<"\t"<<"\t";
+for( aa=0;aa<33;aa++)
+{ cout<<ch;}
+cout<<"\n";
+gotoxy(36,11);
+gets(username);
+gotoxy(36,16);
+char pass[10];
+int i=0,k;
+pass[0]=getch();
+while(pass[i]!=13)
+{   i++;
+    cout<<"*";
+    pass[i]=getch();
+}
+int n=0;
+char check[]="akhilesh070";
+for(i=0;i<11;i++)
+{ if(pass[i]==check[i])
+   { n++;}
+}
+clrscr();
+disp();
+
+void m11();
+m11();
+if(n!=11)
+{
+cout<<"\n"<<"\n";
+gotoxy(115,70);
+cout<<"                                  ACCESS DENIED";
+cout<<"\n"<<"\n";
+cout<<"               DO YOU REMEMBER YOUR PASSOWRD?, TRY ENTERING AGAIN";
+cout<<"\n";
+void admin();
+admin();
+}
+else
+{
+cout<<"\n";
+cout<<"\n";
+gotoxy(115,70);
+cout<<"\n";
+cout<<"\n";
+cout<<"                                  ACCESS GRANTED";
+cout<<"\n";
+
+getch();
+void adminfunc();
+adminfunc();
+}
+
+}
+
+//---------------------------------------------------
+void m()
+{
+   load();
+   clrscr();
+   textcolor(6);
+   clrscr();
+   char ch=222;
+   char ch9=178;
+   int gq4;
+   disp();
+   cout<<"\n";
+   cout<<"********************************************************************************";
+   cout<<"                   Please enter an option to proceed further                    ";
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t";
+   for(int aa=0;aa<33;aa++)
+      { cout<<ch;}
+
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"\t"<<"\t"<<"\t"<<ch;
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"  "<<"1.ADMIN LOGIN"<<"         "<<ch;
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t";
+
+   for( aa=0;aa<33;aa++)
+       { cout<<ch;}
+
+   cout<<"\n";
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t";
+
+   for( aa=0;aa<33;aa++)
+      {cout<<ch;}
+
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"\t"<<"\t"<<"\t"<<ch;
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t"<<ch<<"\t"<<"  "<<"2.CUSTOMER LOGIN"<<"      "<<ch;
+   cout<<"\n";
+   cout<<"\t"<<"\t"<<"\t";
+
+   for( aa=0;aa<33;aa++)
+      { cout<<ch;}
+
+   cout<<"\n";
+   cout<<"ENTER->";
+   cin>>gq4;
+     if(gq4==1)
+       { admin();}
+     if(gq4==2)
+       {home();}
+ getch();
+}
+
+//****************************************
+
+
+void main()
+{
+textbackground(BLACK);
+textcolor(WHITE);
+wonderland();
+/*pre();
+water();
+and();
+thrill();
+*/
+m();
+getch();
+}
